@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sikkim Project</title>
+    <style>
+        /* Importing stylish fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Quicksand:wght@400;600&display=swap');
+
+        :root {
+            --primary-color: #2e5d32; /* Forest Green */
+            --secondary-color: #f9a825; /* Golden Yellow */
+            --text-color: #1a1a1a;
+            --bg-color: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #e0e0e0; /* Gray background for screen view */
+            font-family: 'Quicksand', sans-serif;
+            color: var(--text-color);
+            -webkit-print-color-adjust: exact;
+        }
+
+        /* A4 Page Styling */
+        .page {
+            width: 210mm;
+            height: 297mm;
+            background: white;
+            margin: 20px auto;
+            position: relative;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            page-break-after: always;
+        }
+
+        /* The Aesthetic Page Border */
+        .page-border {
+            position: absolute;
+            top: 15mm;
+            left: 15mm;
+            right: 15mm;
+            bottom: 15mm;
+            border: 2px solid var(--primary-color);
+            border-radius: 15px;
+            pointer-events: none; /* Allows clicking through text */
+            z-index: 10;
+        }
+
+        /* Inner decorative line for the border */
+        .page-border::after {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            right: 4px;
+            bottom: 4px;
+            border: 1px solid var(--secondary-color);
+            border-radius: 12px;
+        }
+
+        /* Content Area inside the border */
+        .content {
+            padding: 30mm 25mm 25mm 25mm; /* Margins to sit inside the border */
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* Typography */
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 3.5rem;
+            text-align: center;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--secondary-color);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        /* Images */
+        .image-box {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #ddd;
+        }
+
+        img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        /* Highlight Boxes */
+        .highlight {
+            background-color: #f1f8e9;
+            padding: 15px;
+            border-left: 4px solid var(--primary-color);
+            border-radius: 0 10px 10px 0;
+            margin-bottom: 20px;
+        }
+
+        /* Page Number */
+        .page-number {
+            position: absolute;
+            bottom: 20mm;
+            right: 20mm;
+            font-family: 'Cinzel', serif;
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+
+        /* Print Settings */
+        @media print {
+            body {
+                background: none;
+            }
+            .page {
+                margin: 0;
+                box-shadow: none;
+                page-break-after: always;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- PAGE 1: MAP (Cover) -->
+    <div class="page">
+        <div class="page-border"></div>
+        <div class="content" style="text-align: center;">
+            <div style="flex-grow: 1; display: flex; flex-direction: column; justify-content: center;">
+                <h1>SIKKIM</h1>
+                <p style="text-align: center; color: #666; font-style: italic; font-size: 1.4rem;">The Organic State of India</p>
+                
+                <div class="image-box" style="border: 4px solid var(--secondary-color);">
+                    <!-- USER: Save image as map.jpeg -->
+                    <img src="map.jpeg" alt="Map of Sikkim" style="height: 500px; object-fit: contain;">
+                </div>
+                
+                <div style="margin-top: 30px;">
+                    <p style="text-align: center; font-weight: bold; font-size: 1.2rem;">Social Science Project</p>
+                </div>
+            </div>
+        </div>
+        <div class="page-number">01</div>
+    </div>
+
+    <!-- PAGE 2: INTRODUCTION -->
+    <div class="page">
+        <div class="page-border"></div>
+        <div class="content">
+            <h2>Introduction</h2>
+            <div class="highlight">
+                <p>Sikkim is a state in Northeast India. It is bordered by China on the north, Nepal on the west, Bangladesh on the east, and West Bengal on the south. It sits at the foot of the Himalayas, making it one of the three key Ecoregions in India.</p>
+            </div>
+            <p>From tropical plants to alpine tundra, the biodiversity here is immense. Did you know almost <strong>81% of Sikkim comes under forest administration</strong>? That is why it is known as the "Green State".</p>
+            <p>Sikkim has numerous National Parks to preserve its beautiful wildlife, the most famous being the <strong>Khangchendzonga National Park</strong>, home to Mount Kangchenjunga.</p>
+        </div>
+        <div class="page-number">02</div>
+    </div>
+
+    <!-- PAGE 3: GEOGRAPHY & CLIMATE -->
+    <div class="page">
+        <div class="page-border"></div>
+        <div class="content">
+            <h2>Geography</h2>
+            <p>Sikkim is a mountainous state with dramatic elevation changes. It features lower hills, high alpine zones, and snow-bound northern regions. The landscape is dissected by rushing rivers like the <strong>Teesta</strong> and <strong>Rangeet</strong>.</p>
+            
+            <h2 style="margin-top: 30px;">Climate</h2>
+            <p>The climate varies significantly with altitude:</p>
+            <ul>
+                <li><strong>South:</strong> Subtropical</li>
+                <li><strong>Inhabited Areas:</strong> Temperate</li>
+                <li><strong>North:</strong> Cold / Tundra</li>
+            </ul>
+            <div class="highlight">
+                <p>The state experiences heavy monsoon rainfall from May to September and cold, snowy winters from November to February.</p>
+            </div>
+        </div>
+        <div class="page-number">03</div>
+    </div>
+
+    <!-- PAGE 4: CULTURE & LANGUAGE -->
+    <div class="page">
+        <div class="page-border"></div>
+        <div class="content">
+            <h2>Culture & Language</h2>
+            <p>Sikkim has a harmonious culture influenced mainly by three communities: <strong>Lepcha, Bhutia, and Nepali</strong>. Festivals, music, dance, and religious practices play an important role in daily life.</p>
+            
+            <div class="highlight" style="background-color: #fff3e0; border-left-color: var(--secondary-color);">
+                <p><strong>Religion:</strong> Buddhism and Hinduism are the main religions followed in the state.</p>
+            </div>
+
+            <p><strong>Languages:</strong></p>
+            <p>The official languages include <strong>Nepali, English, and Hindi</strong>. Other regional languages spoken include Lepcha, Bhutia, and Limbu.</p>
+        </div>
+        <div class="page-number">04</div>
+    </div>
+
+    <!-- PAGE 5: TRADITIONAL DANCE -->
+    <div class="page">
+        <div class="page-border"></div>
+        <div class="content">
+            <h2>Traditional Dance</h2>
+            <p>Sikkim's traditional dances reflect nature, harvests, and prosperity. They are vibrant, rhythmic, and showcase elaborate costumes.</p>
+            
+            <ul>
+                <li><strong>Tamang Selo:</strong> A vibrant folk dance featuring the 'Damphu' drum.</li>
+                <li><strong>Chham (Lama Dance):</strong> Masked dances performed during Buddhist festivals.</li>
+                <li><strong>Maruni Dance:</strong> A Nepali dance often performed during the Tihar festival.</li>
+            </ul>
+            
+            <p>These dances are a way to showcase rich cultural narratives and community joy during special occasions like harvests and religious celebrations.</p>
+        </div>
+        <div class="page-number">05</div>
+    </div>
+
+    <!-- PAGE 6: TRADITIONAL DRESS -->
+    <div class="page">
+        <div class="page-border"></div>
+        <div class="content">
+            <h2>Traditional Attire</h2>
+            <p>Sikkim's attire is distinct for each community:</p>
+            
+            <div class="highlight">
+                <p><strong>Lepcha:</strong> Women wear the <em>Dumvum</em> (ankle-length sari-like dress).</p>
+                <p><strong>Bhutia:</strong> Women wear the <em>Bakhu (Kho)</em>, a sleeveless silken dress with a blouse. Men wear the robe-like <em>Kho</em> secured by a belt.</p>
+                <p><strong>Nepali:</strong> Women wear vibrant sarees like the <em>Pharia</em>; Men wear churidar pajamas with shirts.</p>
+            </div>
+
+            <div class="image-box">
+                <!-- USER: Save image as dress.jpeg -->
+                <img src="Sikkim-Dress-401940497.webp" alt="Traditional Dress of Sikkim">
+            </div>
+        </div>
+        <div class="page-number">06</div>
+    </div>
+
+    <!-- PAGE 7: TRADITIONAL FOOD -->
+    <div class="page">
+        <div class="page-border"></div>
+        <div class="content">
+            <h2>Traditional Food</h2>
+            <div class="image-box">
+                <!-- USER: Save image as food.jpeg -->
+                <img src="food.jpeg" alt="Sikkim Traditional Food">
+            </div>
+            <p>The food of Sikkim is a rich mixture of Nepalese, Tibetan, and native Sikkimese influences. It is known for being soothing to the taste buds.</p>
+            
+            <ul>
+                <li><strong>Staples:</strong> Maize and Rice are the primary crops consumed.</li>
+                <li><strong>Style:</strong> Majorly non-vegetarian.</li>
+                <li><strong>Specialty:</strong> Fermented vegetables are widely used to preserve food for winter and add unique flavors.</li>
+            </ul>
+        </div>
+        <div class="page-number">07</div>
+    </div>
+
+    <!-- PAGE 8: ECONOMY & TOURISM -->
+    <div class="page">
+        <div class="page-border"></div>
+        <div class="content">
+            <h2>Economy</h2>
+            <p>Agriculture is the backbone of the economy, producing cardamom, maize, and rice. notably, <strong>Sikkim is India's first fully organic state.</strong></p>
+            
+            <h2 style="margin-top: 30px;">Tourism</h2>
+            <p>Tourism is a major source of income. The state attracts nature lovers and adventure seekers from around the globe.</p>
+            
+            <div class="highlight" style="border-left-color: var(--secondary-color);">
+                <p><strong>Must-Visit Places:</strong></p>
+                <ul>
+                    <li>Gangtok (The Capital)</li>
+                    <li>Tsomgo Lake</li>
+                    <li>Nathula Pass</li>
+                    <li>Yumthang Valley</li>
+                </ul>
+            </div>
+        </div>
+        <div class="page-number">08</div>
+    </div>
+
+</body>
+</html>
